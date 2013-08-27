@@ -1,2 +1,3 @@
 .DS_Store
 src/.sass-cache
+bin/node_modules
