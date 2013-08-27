@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mortgage Calculator</title>
+	<link type="text/css" rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<div class="container clearfix">
+	<section class="description">
+		<h1>A Mortgage Calculator</h1>
+		<h2>for the Kid in all of us</h2>
+
+		<p>When you start looking for a house, you have a million questions, many of them circling around money. Specifically, you want to know how much you can afford. This kind of question is usually answered with a fanciful little form requiring you enter a bunch of variables. The problem with this is that you probably don't know what values to plug in yet. You just want to play around!</p>
+		<p>This form is that playground. It allows you to drag sliders and enter data. Maybe if you stretch with extra payments, the benefits of your hard work will pay off better than expected. Maybe a 15 year suits your goals better than a 30 year. Now you can see some "hard" numbers and figure out how to make this homeownership dream happen.</p>
+		<p>Each time you create a new result, it is automatically saved to the visual graph. You can clear the graph and start over if it's getting too cluttered. If you don't clear it, the last 100 results will be saved. The cool thing is that these results are saved to your browser's persistent storage, so until you clear your browsers site data, you will be able to return to this page and see all your data!</p>
+	</section>
+	<form name="mortgage_calc" class="mortgage_calc" method="get" action="#">
+
+<h3>The Basics</h3>
+<fieldset>
+	<section>
+		<label for="amount">Loan Amount</label>
+		$<input name="amount" id="amount" type="text" />
+		<input name="amount_slider" type="range" min="10000" max="10000000" step="1000" value="100000" />
+		<span class="tooltip" data-content="<a href='http://www.zillow.com/'>Zillow</a> is a great place to start. <a href='http://www.trulia.com/'>Trulia</a> offers estimates, listings, and more.">?</span>
+	</section>
+
+	<section>
+		<label for="term">Loan Term</label>
+		<input name="term" id="term" type="text" />
+		<input name="term_slider" type="range" min="5" max="45" step="5" />
+		<!--<select name="term_modifier">
+			<option value="1">Years</option>
+			<option value="12">Months</option>
+		</select>-->
+		<span class="tooltip" data-content="15-year and 30-year mortgages are the most comment, but your bank might have additional options for you.">?</span>
+	</section>
+
+	<section>
+		<label>Interest Rate</label>
+		<input name="interest" id="interest" type="text" />
+		<input name="interest_slider" type="range" min="3" max="8" step="0.1" value="4.5" />
+		3.5-5.5 % per year (always fixed rate)
+		<span class="tooltip" data-content="<a href='http://www.bankrate.com/finance/mortgages/current-interest-rates.aspx'>BankRate</a> has a good spread of mortgage rates. <a href='http://www.zillow.com/mortgage-rates/'>Zillow</a> allows you to specify your credit score, which might be important to you.">?</span>
+		Amortized:
+		<select name="amortized_modifier">
+			<option value="12">Yearly</option>
+			<option value="1">Monthly</option>
+		</select>
+		<span class="tooltip" data-content="Amortization schedule might not make a huge difference, but it's here for completeness.">?</span>
+	</section>
+
+	<section>
+		<label>Monthly Payments</label>
+		$100 - $5k
+		$ <input name="monthly_payment" type="text" />
+		<input name="monthly_payment_slider" type="range" min="300" max="30000" step="100" value="2000" />
+	</section>
+</fieldset>
+
+<h3>Payment Modifications</h3>
+<fieldset>
+	<section>
+		<label>Extra Monthly Payments</label>
+		$100 - $5k
+		<input name="monthly_extra_payment" type="text" />
+	</section>
+	<section>
+		<label>Will be paid off on:</label>
+		<input name="paid_off_date" type="date" />
+	</section>
+	<section>
+		<label>Yearly property tax</label>
+		$ 100-20k <input name="yearly_property_tax" type="text" />
+	</section>
+	<section>
+		<label>Yearly property insurance</label>
+		$ 100-10k <input name="yearly_property_insurance" type="text" />
+	</section>
+</fieldset>
+
+<h3>Output</h3>
+<fieldset>
+	<label>You'll be spending</label> $ per year
+	<label>Total applied to principal</label> $
+	<label>Total applied to interest</label> $
+	<label>Total cost</label> $
+	<label>Total term</label> yrs, mo
+	<label>Total number of Payments</label> #
+	<label>Different between normal and extra payment:</label>
+		<label>Interest Saved</label> $
+		<label>Total Time Saved</label> yrs, mo
+		<label>Payments Eliminated</label> #
+</fieldset>
+
+
+	</form>
+	<div id="output">
+		<noscript>This page makes heavy use of JavaScript. Please enable it to use this form.</noscript>
+		<output id="graph"></output>
+		<aside id="graph_credits">
+			Thanks to the craftsmen at <a href="http://d3js.org" target="_blank">d3.js</a> for creating such a great visualization library!
+		</aside>
+	</div>
+</div><!-- / .container -->
+
+<!--
+<style type="text/css">@import url('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+-->
+<script type="text/javascript" src="../src/js/vendor/d3.v3.js" charset="utf-8"></script>
+<script type="text/javascript" src="../src/js/main.js"></script>
+</body>
+</html>
