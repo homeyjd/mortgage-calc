@@ -1,0 +1,16 @@
+{
+  "name": "MortgageCalc",
+  "version": "0.1.0",
+  "author": "Jesse Decker",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-banner": "*"
+  }
+}
